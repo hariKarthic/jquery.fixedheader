@@ -19,7 +19,7 @@ Requirements :
 Usage :
 ---------------
 
-call .fixedheader() on the table that need header to be fixed on scroll.
+call .fixedheader() on the tables that needs header to be fixed when scrolling.
 
 
 
