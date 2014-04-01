@@ -25,7 +25,7 @@
 			
 			var fixedRows = that.options.fixedRows;
 			while(fixedRows >= 1){
-				rowIndex = fixedRows -1;//To not conflict with eq() as it is a zero based index.
+				rowIndex = fixedRows-1;//To not conflict with eq() as it is a zero based index.
 				elem.find('tr:eq('+rowIndex+')').addClass("fixedhdrrow");
 				fixedRows--;
 			}
