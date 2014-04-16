@@ -19,7 +19,13 @@ Requirements :
 Usage :
 ---------------
 
-call .fixedheader() on the tables that needs header to be fixed when scrolling.
+call $(selector).fixedheader() on the tables that needs header to be fixed when scrolling.
+
+
+options:
+------------
+
+fixedRows : 1 (default) - Sets the first row to be fixed.
 
 
 

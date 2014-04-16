@@ -20,6 +20,12 @@
 				parent = this.element.parent(),
 			    _elemid = elem.attr("id"),
 				_elemname = elem.attr("name");
+				
+				
+			if(elem[0].tagName !== 'TABLE' ){
+			throw new Error("Error:fixedheader() should be called on a table");
+			return;
+			}			
 			fixedHdrWrap =  $("<div class = 'fixedhdr' style='overflow:hidden' ></div>");
 			fixedTable  = $("<table class = 'table_style' style='background-color:#ccc'></table>");
 			
