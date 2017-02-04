@@ -1,0 +1,29 @@
+{
+  "name": "jquery.fixedheader",
+  "version": "1.0.0",
+  "description": "a simple plugin to demonstrate plugin creation in jquery",
+  "main": "jquery.fixedheader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hariKarthic/jquery.fixedheader.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "jquery"
+  ],
+  "author": "HariKarthicM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hariKarthic/jquery.fixedheader/issues"
+  },
+  "homepage": "https://github.com/hariKarthic/jquery.fixedheader#readme",
+  "dependencies": {
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "webpack": "^2.2.1"
+  }
+}
