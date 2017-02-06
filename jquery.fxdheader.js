@@ -7,36 +7,61 @@
 (function (jq, window) {
 
 
-    var defaults = {
-        rows: '1'
-    };
+	var defaults = {
+		rows: '1'
+	};
 
 
-    function FixedHeader(element, options) {
+	function FixedHeader(element, options) {
 
-        this.options = $.extend({}, defaults, options);
-        this.element = element;
-        this.init();
+		this.options = $.extend({}, defaults, options);
+		this.element = element;
+		this.init();
 
-    }
+	}
 
-    FixedHeader.prototype.init = function () {
+	FixedHeader.prototype.init = function () {
 
-        console.log(this.element);
-		this.clonerow(this.options.rows)
+		var cloneRows = this.clonerow(this.options.rows);
+		this.addStyles(cloneRows);
+		$(this.element).prepend(cloneRows);
+		this.bindEvents();
 
 
-    };
+	};
 
-    FixedHeader.prototype.clonerow = function(rowcount){
+	FixedHeader.prototype.getTableTop = function () {
+		var tTop = $("#my_table").top();
+	};
 
-    	var cloneRows = $(this.element).find('tr');
-    	console.log(cloneRows);
-    	var actualClones = cloneRows.filter(function(index){
-    		return parseInt(index+1) <= parseInt(rowcount,10)
-		});
-    	console.log($(actualClones));
-    	$(this.element).prepend(actualClones)
+	FixedHeader.prototype.bindEvents = function () {
+
+
+		window.addEventListener('scroll', function (event) {
+			console.log(window.scrollY);
+		})
+
+	};
+
+	FixedHeader.prototype.addStyles = function (elements) {
+		var styles = {
+			position: 'absolute',
+			top: 0,
+			display: 'none'
+		};
+
+		elements.css(styles);
+	};
+
+	FixedHeader.prototype.clonerow = function (rowcount) {
+
+		var cloneRows = $(this.element).find('tr').filter(function (index) {
+			return parseInt(index + 1) <= parseInt(rowcount, 10)
+		}).clone();
+
+		return cloneRows;
+
+
 	};
 
 	/**
@@ -46,11 +71,11 @@
 
 		fixedHeader: function (options) {
 
-            return this.each(function () {
-                new FixedHeader(this, options)
-            })
+			return this.each(function () {
+				new FixedHeader(this, options)
+			})
 
-        }
-    })
+		}
+	})
 
 })(jQuery, window);

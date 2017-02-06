@@ -1,5 +1,6 @@
 /**
  * jQuery plugin for Fixed Header.
+ *  -- Will be removed , widget factory pattern.
  */
 (function($,window,document,undefined){
 	//Static members which is available to all instances of widget.
@@ -20,15 +21,15 @@
 				parent = this.element.parent(),
 			    _elemid = elem.attr("id"),
 				_elemname = elem.attr("name");
-				
-				
+
+
 			if(elem[0].tagName !== 'TABLE' ){
 			throw new Error("Error:fixedheader() should be called on a table");
 			return;
-			}			
+			}
 			fixedHdrWrap =  $("<div class = 'fixedhdr' style='overflow:hidden' ></div>");
 			fixedTable  = $("<table class = 'table_style' style='background-color:#ccc'></table>");
-			
+
 			var fixedRows = that.options.fixedRows;
 			while(fixedRows >= 1){
 				rowIndex = fixedRows-1;//To not conflict with eq() as it is a zero based index.
@@ -47,9 +48,9 @@
 			tableCount++;
 		},
 		_setOption :function(key,value){
-			
-		
-		
+
+
+
 		},
 		_scrollWindow : function(event,data){
 			$(window).on("scroll",function(){
@@ -59,7 +60,7 @@
 							$('._fixedhdr'+i).show();
 						}else{
 							$('._fixedhdr'+i).hide();
-						}		
+						}
 					}
 			});
 		},
